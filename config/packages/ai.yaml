@@ -26,6 +26,10 @@ ai:
                 file: '%kernel.project_dir%/config/ai/plant_finder.md'
             tools:
                 - 'App\Ai\GetWeather'
+                - 'sulu_product.ai_get_attributes'
+                - 'sulu_product.ai_get_attribute_values'
+                - 'sulu_product.ai_search_products_by_attributes'
+                - 'sulu_product.ai_get_product_details'
 
     store:
         # Store configuration
