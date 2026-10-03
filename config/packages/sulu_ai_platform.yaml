@@ -1,0 +1,4 @@
+sulu_ai_platform:
+    api_key: '%env(SULU_AI_PLATFORM_API_KEY)%'
+    base_uri: '%env(SULU_AI_PLATFORM_BASE_URI)%'
+    contact_email: 'hello@sulu.io'

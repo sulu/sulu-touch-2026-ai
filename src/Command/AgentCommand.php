@@ -42,10 +42,10 @@ final class AgentCommand extends Command
         });
 
         while (\is_string($question = $io->ask('You')) && '' !== $question) {
-            $messages->add(Message::ofUser($question));
+            $messages = $messages->with(Message::ofUser($question));
 
             $answer = $this->agent->call($messages)->asText();
-            $messages->add(Message::ofAssistant($answer));
+            $messages = $messages->with(Message::ofAssistant($answer));
 
             $io->writeln('<info>Agent:</info> ' . $answer);
         }

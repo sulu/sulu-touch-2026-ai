@@ -37,11 +37,13 @@
         "scheb/2fa-email": "^7.4",
         "scheb/2fa-trusted-device": "^7.4",
         "stof/doctrine-extensions-bundle": "^1.11",
+        "sulu/ai-platform-bundle": "dev-agent-chat-admin as 0.8.x-dev",
+        "sulu/ai-bundle": "dev-feature/symfony-ai-1.0-beta1 as dev-main",
         "sulu/product-bundle": "3.0.x-dev",
         "sulu/sulu": "3.1.x-dev",
-        "symfony/ai-agent": "^0.14.1",
-        "symfony/ai-bundle": "^0.14.1",
-        "symfony/ai-open-ai-platform": "^0.14.0",
+        "symfony/ai-agent": "^1.0.0-BETA1",
+        "symfony/ai-bundle": "^1.0.0-BETA1",
+        "symfony/ai-open-ai-platform": "^1.0.0-BETA1",
         "symfony/asset-mapper": "7.4.*",
         "symfony/config": "^7.4",
         "symfony/dotenv": "^7.4",
@@ -210,5 +212,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [{
+        "name": "sulu",
+        "type": "composer",
+        "url": "https://sulu.repo.packagist.com/sulu-gmbh/"
+    }]
 }

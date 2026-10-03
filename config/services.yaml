@@ -22,3 +22,14 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # The plant finder runs on the platform. A visitor's request only starts the run or reads its state, the tools
+    # run in the poll that finds the platform waiting for them.
+    app.plant_finder_runs:
+        class: Sulu\Bundle\AiPlatformBundle\Infrastructure\Symfony\AI\Agent\PlatformRunAgent
+        arguments:
+            $agent: '@ai.agent.plant_finder'
+            $agentClient: '@sulu_ai_platform.agent_client'
+            $toolbox: '@ai.toolbox.plant_finder'
+            $maxRounds: 8
+            $logger: '@logger'

@@ -51,4 +51,6 @@ return [
     Symfony\UX\TwigComponent\TwigComponentBundle::class => ['all' => true],
     Symfony\UX\StimulusBundle\StimulusBundle::class => ['all' => true],
     Symfony\UX\LiveComponent\LiveComponentBundle::class => ['all' => true],
+    Sulu\Bundle\AiPlatformBundle\SuluAiPlatformBundle::class => ['all' => true],
+    Sulu\Bundle\AiBundle\SuluAiBundle::class => ['all' => true],
 ];

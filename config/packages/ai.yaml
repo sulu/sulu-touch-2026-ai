@@ -19,8 +19,10 @@ ai:
         #        - 'Symfony\AI\Agent\Bridge\Clock\Clock'
 
         plant_finder:
-            platform: 'ai.platform.openai'
-            model: 'gpt-5-mini'
+            platform: 'ai.platform.sulu_ai_platform'
+            model:
+                name: 'agent'
+                options: { name: 'plant-finder', ttl_days: 1, model: 'gemini-3.7-flash' }
             max_tool_calls: 8
             prompt:
                 file: '%kernel.project_dir%/config/ai/plant_finder.md'

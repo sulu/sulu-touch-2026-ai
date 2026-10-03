@@ -1,4 +1,4 @@
-<section class="chat" {{ attributes }}>
+<section class="chat" {{ attributes }}{% if pending %} data-poll="delay(1500)|poll"{% endif %}>
     {% if not log %}
         <p class="hint">Ask for a plant, for example: "Which plants are safe for cats and like shade?"</p>
     {% endif %}
@@ -13,10 +13,12 @@
         {% endfor %}
     </div>
 
-    <p class="thinking" data-loading>Thinking</p>
+    {% if pending %}
+        <p class="thinking">Thinking</p>
+    {% endif %}
 
     <form class="send" data-action="live#action:prevent" data-live-action-param="send">
         <input name="message" data-model="norender|message" placeholder="Which plant fits my dark bathroom?" autocomplete="off" required>
-        <button data-loading="addAttribute(disabled)">Ask</button>
+        <button{% if pending %} disabled{% endif %} data-loading="addAttribute(disabled)">Ask</button>
     </form>
 </section>
