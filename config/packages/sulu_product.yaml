@@ -1,0 +1,5 @@
+sulu_product:
+    route:
+        type: page_tree_route
+        params:
+            route_schema: "/{implode('-', object.title)}"

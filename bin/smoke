@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Smoke test of the checked out branch. Rebuilds the data, then checks pages, console agent and chat.
+# With an API key in .env.local the agent answers for real. Without one it only checks the wiring.
+set -uo pipefail
+cd "$(dirname "$0")/.."
+
+PORT=8123
+BASE=http://127.0.0.1:$PORT
+FAILED=0
+ok()   { echo "  ok    $1"; }
+fail() { echo "  FAIL  $1"; FAILED=1; }
+check() { if eval "$2" >/dev/null 2>&1; then ok "$1"; else fail "$1"; fi; }
+
+echo "== $(git rev-parse --abbrev-ref HEAD)"
+bin/workshop-reset >/dev/null 2>&1 && ok "reset: schema, user, fixtures, index" || { fail "reset"; exit 1; }
+symfony server:start -d --no-tls --port=$PORT >/dev/null 2>&1 || true
+
+for path in / /products /products/monstera /admin/; do
+    check "GET $path is 200" "[ \"\$(curl -s -o /dev/null -w '%{http_code}' $BASE$path)\" = 200 ]"
+done
+check "fifteen plants are published" "[ \"\$(curl -s $BASE/products/monstera | grep -c Monstera)\" -ge 1 ]"
+
+if grep -q 'sulu_ai_platform' config/packages/ai.yaml; then KEY=SULU_AI_PLATFORM_API_KEY; else KEY=OPENAI_API_KEY; fi
+grep -q "^$KEY=." .env.local && LIVE=1 || LIVE=0
+[ $LIVE = 1 ] && echo "  live: $KEY is set, the agent answers for real" || echo "  wiring only: $KEY is empty"
+
+if bin/adminconsole list app --raw 2>/dev/null | grep -q '^app:agent'; then
+    OUT=$(printf 'What is the weather in Vienna right now?\n\n' | bin/adminconsole app:agent 2>&1)
+    if [ $LIVE = 1 ]; then
+        check "app:agent answers the weather question" "echo \"\$OUT\" | grep -q 'Agent:.*[0-9]'"
+    else
+        check "app:agent reaches the platform" "echo \"\$OUT\" | grep -qiE 'api key|agent-runs|must not be empty'"
+    fi
+fi
+
+if bin/websiteconsole debug:router app_plant_chat >/dev/null 2>&1; then
+    JAR=$(mktemp)
+    chat() { curl -s -b "$JAR" -c "$JAR" -X POST -H 'Content-Type: application/json' -d "$1" $BASE/api/plant-chat; }
+    R1=$(chat '{"message":"Which plants are safe for cats and like shade?"}')
+    if [ $LIVE = 1 ]; then
+        check "chat answers with a tool step"   "echo '$R1' | jq -e '.steps | index(\"sulu_product_search_products_by_attributes\")'"
+        check "chat returns plants with a url"  "echo '$R1' | jq -e '.plants[0].url'"
+        R2=$(chat '{"message":"And which of them is the easiest to care for?"}')
+        check "follow-up question keeps the history" "echo '$R2' | jq -e '.answer | length > 0'"
+    else
+        check "chat endpoint returns JSON error" "echo '$R1' | jq -e '.error'"
+    fi
+    rm -f "$JAR"
+fi
+
+[ $FAILED = 0 ] && echo "SMOKE OK" || { echo "SMOKE FAILED"; exit 1; }

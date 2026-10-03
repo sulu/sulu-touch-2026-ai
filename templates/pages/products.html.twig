@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>{{ content.title }}</h1>
+
+    <div class="lead">{{ content.article|raw }}</div>
+
+    <ul class="plant-grid">
+        {% for product in content.products|default([]) %}
+            {% set facts = {} %}
+            {% for group in product.attributes|default([])|sulu_product_attribute_groups %}
+                {% set facts = facts|merge(group.attributes) %}
+            {% endfor %}
+            <li>
+                <a class="plant-card" href="{{ sulu_content_path(product.url) }}">
+                    <strong>{{ product.title }}</strong>
+                    <span class="claim">{{ product.claim }}</span>
+                    <span class="chips">
+                        {% for key in ['light', 'care', 'pets'] %}
+                            {% if facts[key] is defined %}
+                                <span class="chip chip-{{ key }}">{{ facts[key].formattedValue }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

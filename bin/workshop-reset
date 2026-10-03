@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Rebuilds database, admin user, 15 plants and the search index. Run after every branch switch.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+docker compose up -d --wait database
+bin/adminconsole cache:clear
+bin/websiteconsole cache:clear
+bin/adminconsole doctrine:schema:drop --force --full-database
+bin/adminconsole doctrine:schema:update --force
+bin/adminconsole sulu:security:init
+bin/adminconsole sulu:security:role:create Sulu Sulu
+bin/adminconsole sulu:security:user:create admin Admin Admin admin@example.com en Sulu admin
+bin/adminconsole sulu:page:initialize
+bin/adminconsole doctrine:fixtures:load --append --no-interaction
+bin/adminconsole cmsig:seal:reindex
+bin/websiteconsole cache:clear
