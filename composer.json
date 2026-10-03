@@ -37,6 +37,8 @@
         "scheb/2fa-email": "^7.4",
         "scheb/2fa-trusted-device": "^7.4",
         "stof/doctrine-extensions-bundle": "^1.11",
+        "sulu/ai-platform-bundle": "dev-main",
+        "sulu/ai-bundle": "dev-main",
         "sulu/product-bundle": "3.0.x-dev",
         "sulu/sulu": "3.1.x-dev",
         "symfony/ai-agent": "^0.14.1",
@@ -210,5 +212,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [{
+        "name": "sulu",
+        "type": "composer",
+        "url": "https://sulu.repo.packagist.com/sulu-gmbh/"
+    }]
 }

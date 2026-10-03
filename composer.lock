@@ -4,8 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5069039e83b14f6fe63b9ecb946a7bd1",
+    "content-hash": "653b66e851c9c5f2cd4a57273bc8b86d",
     "packages": [
+        {
+            "name": "brick/math",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brick/math.git",
+                "reference": "2effe05d2177c451b86c6a073196a4034c02f211"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brick/math/zipball/2effe05d2177c451b86c6a073196a4034c02f211",
+                "reference": "2effe05d2177c451b86c6a073196a4034c02f211",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "2.2.13",
+                "phpstan/phpstan-phpunit": "2.0.18",
+                "phpunit/phpunit": "^11.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Brick\\Math\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Arbitrary-precision arithmetic library",
+            "keywords": [
+                "Arbitrary-precision",
+                "BigInteger",
+                "BigRational",
+                "arithmetic",
+                "bigdecimal",
+                "bignum",
+                "bignumber",
+                "brick",
+                "decimal",
+                "integer",
+                "math",
+                "mathematics",
+                "rational"
+            ],
+            "support": {
+                "issues": "https://github.com/brick/math/issues",
+                "source": "https://github.com/brick/math/tree/1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/BenMorel",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-09-12T10:28:18+00:00"
+        },
         {
             "name": "clue/stream-filter",
             "version": "v1.7.0",
@@ -5300,6 +5360,160 @@
             "time": "2024-09-11T13:17:53+00:00"
         },
         {
+            "name": "ramsey/collection",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/collection.git",
+                "reference": "344572933ad0181accbf4ba763e85a0306a8c5e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/collection/zipball/344572933ad0181accbf4ba763e85a0306a8c5e2",
+                "reference": "344572933ad0181accbf4ba763e85a0306a8c5e2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "captainhook/plugin-composer": "^5.3",
+                "ergebnis/composer-normalize": "^2.45",
+                "fakerphp/faker": "^1.24",
+                "hamcrest/hamcrest-php": "^2.0",
+                "jangregor/phpstan-prophecy": "^2.1",
+                "mockery/mockery": "^1.6",
+                "php-parallel-lint/php-console-highlighter": "^1.0",
+                "php-parallel-lint/php-parallel-lint": "^1.4",
+                "phpspec/prophecy-phpunit": "^2.3",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-mockery": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^10.5",
+                "ramsey/coding-standard": "^2.3",
+                "ramsey/conventional-commits": "^1.6",
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "library",
+            "extra": {
+                "captainhook": {
+                    "force-install": true
+                },
+                "ramsey/conventional-commits": {
+                    "configFile": "conventional-commits.json"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ramsey\\Collection\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                }
+            ],
+            "description": "A PHP library for representing and manipulating collections.",
+            "keywords": [
+                "array",
+                "collection",
+                "hash",
+                "map",
+                "queue",
+                "set"
+            ],
+            "support": {
+                "issues": "https://github.com/ramsey/collection/issues",
+                "source": "https://github.com/ramsey/collection/tree/2.1.1"
+            },
+            "time": "2025-03-22T05:38:12+00:00"
+        },
+        {
+            "name": "ramsey/uuid",
+            "version": "4.9.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid.git",
+                "reference": "75d73f48d02797c2c285a7e9f348fadc0102ffe2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/75d73f48d02797c2c285a7e9f348fadc0102ffe2",
+                "reference": "75d73f48d02797c2c285a7e9f348fadc0102ffe2",
+                "shasum": ""
+            },
+            "require": {
+                "brick/math": "^0.8.16 || ^0.9 || ^0.10 || ^0.11 || ^0.12 || ^0.13 || ^0.14 || ^0.15 || ^0.16 || ^0.17 || ^0.18 || ^0.19 || ^0.20 || ^1.0",
+                "php": "^8.0",
+                "ramsey/collection": "^1.2 || ^2.0"
+            },
+            "replace": {
+                "rhumsaa/uuid": "self.version"
+            },
+            "require-dev": {
+                "captainhook/captainhook": "^5.25",
+                "captainhook/plugin-composer": "^5.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "ergebnis/composer-normalize": "^2.47",
+                "mockery/mockery": "^1.6",
+                "paragonie/random-lib": "^2",
+                "php-mock/php-mock": "^2.6",
+                "php-mock/php-mock-mockery": "^1.5",
+                "php-parallel-lint/php-parallel-lint": "^1.4.0",
+                "phpbench/phpbench": "^1.2.14",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-mockery": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.6",
+                "slevomat/coding-standard": "^8.18",
+                "squizlabs/php_codesniffer": "^3.13"
+            },
+            "suggest": {
+                "ext-bcmath": "Enables faster math with arbitrary-precision integers using BCMath.",
+                "ext-gmp": "Enables faster math with arbitrary-precision integers using GMP.",
+                "ext-uuid": "Enables the use of PeclUuidTimeGenerator and PeclUuidRandomGenerator.",
+                "paragonie/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
+                "ramsey/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
+            },
+            "type": "library",
+            "extra": {
+                "captainhook": {
+                    "force-install": true
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Ramsey\\Uuid\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A PHP library for generating and working with universally unique identifiers (UUIDs).",
+            "keywords": [
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "support": {
+                "issues": "https://github.com/ramsey/uuid/issues",
+                "source": "https://github.com/ramsey/uuid/tree/4.9.4"
+            },
+            "time": "2026-09-16T11:39:30+00:00"
+        },
+        {
             "name": "scheb/2fa-bundle",
             "version": "v7.14.0",
             "source": {
@@ -5551,6 +5765,297 @@
                 "source": "https://github.com/stof/StofDoctrineExtensionsBundle/tree/v1.15.3"
             },
             "time": "2026-01-23T08:45:07+00:00"
+        },
+        {
+            "name": "sulu/ai-bundle",
+            "version": "dev-main",
+            "dist": {
+                "type": "zip",
+                "url": "https://sulu.repo.packagist.com/sulu-gmbh/dists/sulu/ai-bundle/dev-main/f9dd17d8147ecc0ee82a4e0c92e1c95051ec291a.zip",
+                "reference": "f9dd17d8147ecc0ee82a4e0c92e1c95051ec291a",
+                "mirrors": [
+                    {
+                        "url": "https://sulu.repo.packagist.com/sulu-gmbh/dists/%package%/%version%/r%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": "^8.2",
+                "ramsey/uuid": "^4.7",
+                "sulu/sulu": "^2.6.25 || ^3.0.8 || ^3.1.0 || 2.6.x-dev || 3.0.x-dev || 3.1.x-dev",
+                "symfony/ai-agent": "^0.14",
+                "symfony/ai-bundle": "^0.14",
+                "symfony/config": "^7.3",
+                "symfony/console": "^7.3",
+                "symfony/dependency-injection": "^7.3",
+                "symfony/framework-bundle": "^7.3",
+                "symfony/http-kernel": "^7.3"
+            },
+            "require-dev": {
+                "coduo/php-matcher": "^6.0",
+                "deeplcom/deepl-php": "^1.9",
+                "handcraftedinthealps/zendsearch": "^2.0",
+                "helgesverre/toon": "^3.1",
+                "jackalope/jackalope-doctrine-dbal": "^2.0",
+                "jangregor/phpstan-prophecy": "^2.2",
+                "matesofmate/composer-extension": "^0.7@stable",
+                "matesofmate/phpstan-extension": "^0.7@stable",
+                "matesofmate/phpunit-extension": "^0.7@stable",
+                "php-cs-fixer/shim": "^3.15",
+                "phpspec/prophecy-phpunit": "^2.0@dev",
+                "phpstan/extension-installer": "^1.2",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-symfony": "^2.0",
+                "phpunit/phpunit": "^10.3",
+                "rector/rector": "^2.1",
+                "symfony/ai-mate": "^0.14",
+                "symfony/ai-monolog-mate-extension": "^0.14",
+                "symfony/ai-symfony-mate-extension": "^0.14",
+                "symfony/browser-kit": "^7.3",
+                "symfony/dotenv": "^7.3",
+                "symfony/filesystem": "^7.3",
+                "symfony/yaml": "^7.3"
+            },
+            "suggest": {
+                "deeplcom/deepl-php": "Client to interact with deepl api."
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "ai-mate": {
+                    "extension": false,
+                    "scan-dirs": [
+                        "mate/src"
+                    ],
+                    "includes": [
+                        "mate/config.php"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sulu\\Bundle\\AiBundle\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Sulu\\Bundle\\AiBundle\\Tests\\": "tests/",
+                    "Mate\\": "mate/src/"
+                }
+            },
+            "notification-url": "https://sulu.repo.packagist.com/sulu-gmbh/downloads/",
+            "scripts": {
+                "bootstrap-test-environment": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "@putenv SULU_AI_PLATFORM=true",
+                    "@php tests/Application/bin/adminconsole sulu:build dev --destroy --no-interaction --env test"
+                ],
+                "test": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "vendor/bin/phpunit"
+                ],
+                "test-with-coverage": [
+                    "@test --coverage-php var/reports/coverage.cov --coverage-cobertura=var/cobertura-coverage.xml --coverage-html var/reports/html --log-junit var/reports/junit.xml"
+                ],
+                "phpstan": [
+                    "@php vendor/bin/phpstan analyze"
+                ],
+                "lint-rector": [
+                    "@php vendor/bin/rector process --dry-run"
+                ],
+                "lint-php-cs": [
+                    "@php vendor/bin/php-cs-fixer fix --verbose --diff --dry-run"
+                ],
+                "lint": [
+                    "@phpstan",
+                    "@lint-php-cs",
+                    "@lint-rector",
+                    "@lint-composer"
+                ],
+                "lint-composer": [
+                    "@composer validate --strict"
+                ],
+                "rector": [
+                    "@php vendor/bin/rector process"
+                ],
+                "php-cs-fix": [
+                    "@php vendor/bin/php-cs-fixer fix"
+                ],
+                "fix": [
+                    "@rector",
+                    "@php-cs-fix"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Integrate AI services into Sulu CMS.",
+            "keywords": [
+                "ai",
+                "anthropic",
+                "gpt4",
+                "mistral",
+                "ollama",
+                "openai",
+                "sulu",
+                "symfony-ai"
+            ],
+            "support": {
+                "source": "https://gitlab.sulu.io/ai/packagist/ai-bundle/-/tree/main",
+                "issues": "https://gitlab.sulu.io/ai/packagist/ai-bundle/-/issues"
+            },
+            "time": "2026-10-05T08:36:42+00:00"
+        },
+        {
+            "name": "sulu/ai-platform-bundle",
+            "version": "dev-main",
+            "dist": {
+                "type": "zip",
+                "url": "https://sulu.repo.packagist.com/sulu-gmbh/dists/sulu/ai-platform-bundle/dev-main/64ad40407d1972749cdb7d365a309de7a5ef4bbb.zip",
+                "reference": "64ad40407d1972749cdb7d365a309de7a5ef4bbb",
+                "mirrors": [
+                    {
+                        "url": "https://sulu.repo.packagist.com/sulu-gmbh/dists/%package%/%version%/r%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": "^8.2",
+                "sulu/ai-bundle": "dev-main",
+                "sulu/sulu": "^2.6.27 || ^3.0.9 || ^3.1.0 || 2.6.x-dev || 3.0.x-dev || 3.1.x-dev",
+                "symfony/ai-agent": "^0.14",
+                "symfony/ai-store": "^0.14",
+                "symfony/clock": "^7.3 || ^8.0",
+                "symfony/config": "^7.3",
+                "symfony/console": "^7.3",
+                "symfony/dependency-injection": "^7.3",
+                "symfony/filesystem": "^7.3",
+                "symfony/framework-bundle": "^7.3",
+                "symfony/http-kernel": "^7.3",
+                "symfony/rate-limiter": "^7.3",
+                "symfony/webhook": "^7.3"
+            },
+            "conflict": {
+                "league/flysystem-bundle": "3.x-dev",
+                "sulu/mcp-bundle": "<=1.0.0-RC3"
+            },
+            "require-dev": {
+                "coduo/php-matcher": "^6.0",
+                "handcraftedinthealps/zendsearch": "^2.0",
+                "helgesverre/toon": "^3.1",
+                "jackalope/jackalope-doctrine-dbal": "^2.0",
+                "jangregor/phpstan-prophecy": "^2.2",
+                "matesofmate/composer-extension": "^0.7@stable",
+                "matesofmate/phpstan-extension": "^0.7@stable",
+                "matesofmate/phpunit-extension": "^0.7@stable",
+                "mcp/sdk": "^0.8.1",
+                "php-cs-fixer/shim": "^3.15",
+                "phpspec/prophecy-phpunit": "^2.0@dev",
+                "phpstan/extension-installer": "^1.2",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-doctrine": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^10.3",
+                "rector/rector": "^2.1",
+                "sulu/article-bundle": "^2.6",
+                "symfony/ai-mate": "^0.14",
+                "symfony/ai-monolog-mate-extension": "^0.14",
+                "symfony/ai-symfony-mate-extension": "^0.14",
+                "symfony/browser-kit": "^7.3",
+                "symfony/dotenv": "^7.3",
+                "symfony/yaml": "^7.3"
+            },
+            "suggest": {
+                "sulu/mcp-bundle": "To expose this bundle's experts as MCP tools; requires Sulu 3 and pulls in symfony/mcp-bundle itself."
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "ai-mate": {
+                    "extension": false,
+                    "scan-dirs": [
+                        "mate/src"
+                    ],
+                    "includes": [
+                        "mate/config.php"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sulu\\Bundle\\AiPlatformBundle\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Sulu\\Bundle\\AiPlatformBundle\\Tests\\": "tests/",
+                    "Mate\\": "mate/src/"
+                }
+            },
+            "notification-url": "https://sulu.repo.packagist.com/sulu-gmbh/downloads/",
+            "scripts": {
+                "bootstrap-test-environment": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "@php tests/Application/bin/generate-jwt-keys.php",
+                    "@putenv SULU_AI_PLATFORM=true",
+                    "@php tests/Application/bin/adminconsole sulu:build dev --destroy --no-interaction --env test"
+                ],
+                "test": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "vendor/bin/phpunit"
+                ],
+                "test-without-article-bundle": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "ARTICLE_DISABLED=1 vendor/bin/phpunit"
+                ],
+                "test-with-coverage": [
+                    "@test --coverage-php var/reports/coverage.cov --coverage-cobertura=var/cobertura-coverage.xml --coverage-html var/reports/html --log-junit var/reports/junit.xml"
+                ],
+                "phpstan": [
+                    "@php vendor/bin/phpstan analyze"
+                ],
+                "lint-rector": [
+                    "@php vendor/bin/rector process --dry-run"
+                ],
+                "lint-php-cs": [
+                    "@php vendor/bin/php-cs-fixer fix --verbose --diff --dry-run"
+                ],
+                "lint": [
+                    "@phpstan",
+                    "@lint-php-cs",
+                    "@lint-rector",
+                    "@lint-composer"
+                ],
+                "lint-composer": [
+                    "@composer validate"
+                ],
+                "rector": [
+                    "@php vendor/bin/rector process"
+                ],
+                "php-cs-fix": [
+                    "@php vendor/bin/php-cs-fixer fix"
+                ],
+                "fix": [
+                    "@rector",
+                    "@php-cs-fix"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Integrate extended AI services into Sulu CMS, powered by the sulu.ai Platform.",
+            "keywords": [
+                "ai",
+                "sulu"
+            ],
+            "support": {
+                "source": "https://gitlab.sulu.io/ai/packagist/ai-platform-bundle/-/tree/main",
+                "issues": "https://gitlab.sulu.io/ai/packagist/ai-platform-bundle/-/issues"
+            },
+            "time": "2026-10-06T19:24:21+00:00"
         },
         {
             "name": "sulu/messenger",
@@ -6690,6 +7195,120 @@
                 }
             ],
             "time": "2026-09-26T01:36:04+00:00"
+        },
+        {
+            "name": "symfony/ai-store",
+            "version": "v0.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/ai-store.git",
+                "reference": "d77ba0b094b75f6b2412826f85f66bb4ca9fbef1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/ai-store/zipball/d77ba0b094b75f6b2412826f85f66bb4ca9fbef1",
+                "reference": "d77ba0b094b75f6b2412826f85f66bb4ca9fbef1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "php": ">=8.2",
+                "psr/log": "^3.0",
+                "symfony/ai-platform": "^0.14",
+                "symfony/clock": "^7.3|^8.0",
+                "symfony/event-dispatcher-contracts": "^3.0",
+                "symfony/http-client": "^7.3|^8.0",
+                "symfony/polyfill-php83": "^1.32",
+                "symfony/service-contracts": "^2.5|^3",
+                "symfony/uid": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^11.5.53",
+                "symfony/console": "^7.3|^8.0",
+                "symfony/dependency-injection": "^7.3|^8.0",
+                "symfony/dom-crawler": "^7.3|^8.0",
+                "symfony/filesystem": "^7.3|^8.0",
+                "symfony/finder": "^7.3|^8.0",
+                "symfony/json-path": "^7.3|^8.0",
+                "symfony/string": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/ai",
+                    "name": "symfony/ai"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\AI\\Store\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Hertel",
+                    "email": "mail@christopher-hertel.de"
+                },
+                {
+                    "name": "Oskar Stark",
+                    "email": "oskarstark@googlemail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Low-level abstraction for storing and retrieving documents in a vector store.",
+            "keywords": [
+                "ai",
+                "azure",
+                "chromadb",
+                "clickhouse",
+                "cloudflare",
+                "elasticsearch",
+                "mariadb",
+                "meilisearch",
+                "milvus",
+                "mongodb",
+                "neo4j",
+                "opensearch",
+                "pinecone",
+                "postgres",
+                "qdrant",
+                "supabase",
+                "surrealdb",
+                "typesense",
+                "weaviate"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/ai-store/tree/v0.14.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-09-24T22:33:15+00:00"
         },
         {
             "name": "symfony/asset",
@@ -10572,6 +11191,149 @@
             "time": "2026-09-28T09:47:41+00:00"
         },
         {
+            "name": "symfony/rate-limiter",
+            "version": "v7.4.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/rate-limiter.git",
+                "reference": "6703d040ab83401b27f3c7b29ff4c8c8106fedba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/rate-limiter/zipball/6703d040ab83401b27f3c7b29ff4c8c8106fedba",
+                "reference": "6703d040ab83401b27f3c7b29ff4c8c8106fedba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/options-resolver": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "psr/cache": "^1.0|^2.0|^3.0",
+                "symfony/lock": "^6.4|^7.0|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\RateLimiter\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wouter de Jong",
+                    "email": "wouter@wouterj.nl"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides a Token Bucket implementation to rate limit input and output in your application",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "limiter",
+                "rate-limiter"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/rate-limiter/tree/v7.4.18"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-08-07T15:34:54+00:00"
+        },
+        {
+            "name": "symfony/remote-event",
+            "version": "v7.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/remote-event.git",
+                "reference": "55867f4edaa4ea3dd4155c1570ef345693e5c118"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/remote-event/zipball/55867f4edaa4ea3dd4155c1570ef345693e5c118",
+                "reference": "55867f4edaa4ea3dd4155c1570ef345693e5c118",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/messenger": "^6.4|^7.0|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\RemoteEvent\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Eases handling remote events",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "event"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/remote-event/tree/v7.4.8"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-03-24T13:12:05+00:00"
+        },
+        {
             "name": "symfony/routing",
             "version": "v7.4.20",
             "source": {
@@ -12546,6 +13308,82 @@
                 }
             ],
             "time": "2026-08-23T10:03:40+00:00"
+        },
+        {
+            "name": "symfony/webhook",
+            "version": "v7.4.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/webhook.git",
+                "reference": "0039487d9832ff6710174ddd9252006b6efce9e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/webhook/zipball/0039487d9832ff6710174ddd9252006b6efce9e9",
+                "reference": "0039487d9832ff6710174ddd9252006b6efce9e9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/http-foundation": "^6.4|^7.0|^8.0",
+                "symfony/http-kernel": "^6.4|^7.0|^8.0",
+                "symfony/messenger": "^6.4|^7.0|^8.0",
+                "symfony/remote-event": "^6.4|^7.0|^8.0"
+            },
+            "require-dev": {
+                "symfony/http-client": "^6.4|^7.0|^8.0",
+                "symfony/serializer": "^6.4|^7.0|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Webhook\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Eases sending and consuming webhooks",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "webhook"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/webhook/tree/v7.4.19"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-08-31T17:13:32+00:00"
         },
         {
             "name": "symfony/workflow",
@@ -16187,6 +17025,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "sulu/ai-bundle": 20,
+        "sulu/ai-platform-bundle": 20,
         "sulu/product-bundle": 20,
         "sulu/sulu": 20
     },
