@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Runs bin/smoke on every workshop branch from a clean checkout. Ends on the branch you started on.
+set -uo pipefail
+cd "$(dirname "$0")/.."
+START=$(git rev-parse --abbrev-ref HEAD)
+RESULT=0
+for branch in 01-start 02-weather-console 03-product-tools 04-ui 05-sulu-ai 06-ask-user; do
+    git checkout -q "$branch" && composer install --no-interaction -q 2>&1 | grep -v Imagick
+    bin/smoke || RESULT=1
+done
+git checkout -q "$START"
+composer install --no-interaction -q 2>&1 | grep -v Imagick
+exit $RESULT

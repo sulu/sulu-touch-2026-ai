@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <article class="plant-page">
+        <h1>{{ content.headline|default(product.title) }}</h1>
+        <p class="lead">{{ content.claim }}</p>
+
+        <div class="description">{{ content.description|raw }}</div>
+
+        {% for group in product.attributes|default([])|sulu_product_attribute_groups %}
+            <section class="facts">
+                <h2>{{ group.label }}</h2>
+                <dl>
+                    {% for attribute in group.attributes %}
+                        <div class="fact fact-{{ attribute.key }}">
+                            <dt>{{ attribute.label }}</dt>
+                            <dd>{{ attribute.formattedValue }}</dd>
+                        </div>
+                    {% endfor %}
+                </dl>
+            </section>
+        {% endfor %}
+
+        <p><a class="back" href="{{ sulu_content_path('/products') }}">Back to all plants</a></p>
+    </article>
+{% endblock %}

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>product</key>
+
+    <view>products/product</view>
+    <controller>Sulu\Content\UserInterface\Controller\Website\ContentController::indexAction</controller>
+    <cacheLifetime>604800</cacheLifetime>
+
+    <meta>
+        <title lang="en">Product</title>
+    </meta>
+
+    <properties>
+        <property name="headline" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Headline</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+        </property>
+
+        <property name="claim" type="text_line">
+            <meta>
+                <title lang="en">Claim</title>
+            </meta>
+        </property>
+
+        <property name="description" type="text_editor">
+            <meta>
+                <title lang="en">Description</title>
+            </meta>
+        </property>
+    </properties>
+</template>
