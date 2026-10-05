@@ -1,0 +1,17 @@
+/* Theme variables */
+:root {
+    --primary-color: #1a2b4e;
+    --background-color: #e8e6de;
+    --teal-bg: #3f6e77;
+    --pattern-color: #E8EDF2;
+
+    /* Typography */
+    --font-primary: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Fira Code', monospace;
+
+    /* Base sizing */
+    --section-width: 1280px;
+    --section-height: 720px;
+    --section-padding: 40px;
+    --section-padding-top: 80px;
+}

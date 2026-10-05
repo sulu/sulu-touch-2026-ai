@@ -6,7 +6,7 @@ The code lives in branches. Each branch builds on the previous one and holds the
 
 | Branch | What you get |
 |---|---|
-| [`01-start`](../../tree/01-start) | Sulu skeleton, product bundle, 15 houseplants, the slides in `talk/` |
+| [`01-start`](../../tree/01-start) | Sulu skeleton, product bundle, 15 houseplants |
 | [`02-weather-console`](../../tree/02-weather-console) | A weather agent in the console, on OpenAI |
 | [`03-product-tools`](../../tree/03-product-tools) | The same agent gets the product tools of the bundle |
 | [`04-ui`](../../tree/04-ui) | A chat endpoint and a chat widget on the start page |
@@ -40,10 +40,13 @@ After every branch change run `composer install` and `bin/workshop-reset`. The s
 
 ## Slides
 
+The slides are on `main`, in `talk/`. They use Marp and build offline.
+
 ```bash
 cd talk
 npm install
-npm run build   # writes talk.html, works offline
+npm run build   # writes talk.html
+npm run dev     # live preview while you edit talk.md
 ```
 
 ## Check a branch
