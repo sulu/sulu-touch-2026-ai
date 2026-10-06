@@ -40,7 +40,7 @@ After every branch change run `composer install` and `bin/workshop-reset`. `bin/
 
 ## Slides
 
-`talk.html` on `main` is the finished deck: one file, no network needed for the images. Open it in a browser. The Markdown source is on the branch `sulu-touch-2026-workshop` of the `sulu-slides-template` repository.
+`talk.html` on `main` is the finished deck: one file, no network needed for the images. Open it in a browser. The Markdown source is on the branch `sulu-touch-2026-ai-workshop` of the `sulu-slides-template` repository.
 
 ## Check a branch
 
