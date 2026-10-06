@@ -1,0 +1,22 @@
+<section class="chat" {{ attributes }}>
+    {% if not log %}
+        <p class="hint">Ask for a plant, for example: "Which plants are safe for cats and like shade?"</p>
+    {% endif %}
+
+    <div id="chat-log">
+        {% for entry in log %}
+            {% if 'plant' == entry.type %}
+                <p class="plant"><a href="{{ entry.url }}">{{ entry.text }}</a></p>
+            {% else %}
+                <p class="{{ entry.type }}">{{ entry.text }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <p class="thinking" data-loading>Thinking</p>
+
+    <form class="send" data-action="live#action:prevent" data-live-action-param="send">
+        <input name="message" data-model="norender|message" placeholder="Which plant fits my dark bathroom?" autocomplete="off" required>
+        <button data-loading="addAttribute(disabled)">Ask</button>
+    </form>
+</section>

@@ -33,19 +33,19 @@ if bin/adminconsole list app --raw 2>/dev/null | grep -q '^app:agent'; then
     fi
 fi
 
-if bin/websiteconsole debug:router app_plant_chat >/dev/null 2>&1; then
-    JAR=$(mktemp)
-    chat() { curl -s -b "$JAR" -c "$JAR" -X POST -H 'Content-Type: application/json' -d "$1" $BASE/api/plant-chat; }
-    R1=$(chat '{"message":"Which plants are safe for cats and like shade?"}')
+if bin/websiteconsole debug:router ux_live_component >/dev/null 2>&1; then
+    PAGE=$(curl -s $BASE/)
+    check "start page renders the PlantChat component" "[[ \"\$PAGE\" == *'data-live-name-value=\"PlantChat\"'* ]]"
+    CHAT=$(bin/live-chat $BASE "Which plants are safe for cats and like shade?" "And which of them is the easiest to care for?" 2>&1)
+    R1=$(echo "$CHAT" | sed -n 1p)
+    R2=$(echo "$CHAT" | sed -n 2p)
     if [ $LIVE = 1 ]; then
-        check "chat answers with a tool step"   "echo '$R1' | jq -e '.steps | index(\"sulu_product_search_products_by_attributes\")'"
-        check "chat returns plants with a url"  "echo '$R1' | jq -e '.plants[0].url'"
-        R2=$(chat '{"message":"And which of them is the easiest to care for?"}')
-        check "follow-up question keeps the history" "echo '$R2' | jq -e '.answer | length > 0'"
+        check "chat answers with a tool step"   "printf '%s' \"\$R1\" | jq -e '.log | map(.text) | index(\"Tool: sulu_product_search_products_by_attributes\")'"
+        check "chat returns plants with a url"  "printf '%s' \"\$R1\" | jq -e '.log | map(select(.type == \"plant\"))[0].url'"
+        check "follow-up question keeps the history" "printf '%s' \"\$R2\" | jq -e '[.log[] | select(.type == \"agent\")] | length == 2'"
     else
-        check "chat endpoint returns JSON error" "echo '$R1' | jq -e '.error'"
+        check "chat shows an error entry" "printf '%s' \"\$R1\" | jq -e '.log | map(select(.type == \"error\")) | length > 0'"
     fi
-    rm -f "$JAR"
 fi
 
 [ $FAILED = 0 ] && echo "SMOKE OK" || { echo "SMOKE FAILED"; exit 1; }
