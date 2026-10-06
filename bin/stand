@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Usage: run inside a checkout of a stand branch: <path>/bin/stand <01-06> [smoke]
+# Switches the checkout to one stand, installs, resets the database and restarts the server.
+# The script lives on main, because the stand branches do not carry it. Call it by path.
+set -euo pipefail
+n=${1:?usage: bin/stand <01-06> [smoke]}
+cd "$(git rev-parse --show-toplevel)"
+[ -f bin/workshop-reset ] || { echo "run this inside the checkout of a stand branch, not on main"; exit 1; }
+branch=$(git for-each-ref --format='%(refname:short)' "refs/heads/$n-*" | head -1)
+[ -n "$branch" ] || { echo "no branch for $n"; exit 1; }
+[ -z "$(git status --porcelain)" ] || { echo "working tree is dirty, commit or stash first"; exit 1; }
+git checkout -q "$branch"
+composer install -q --no-interaction
+bin/workshop-reset >/dev/null
+symfony server:stop >/dev/null 2>&1 || true
+symfony server:start -d --no-tls --port=8123 >/dev/null
+echo "== $branch ($(git rev-parse --short HEAD))"
+echo "site   http://127.0.0.1:8123/"
+echo "admin  http://127.0.0.1:8123/admin  (admin / admin)"
+if [ "${2:-}" = smoke ]; then bin/smoke; fi
