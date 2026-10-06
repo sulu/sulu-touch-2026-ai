@@ -1,5 +1,5 @@
 <section class="chat" {{ attributes }}>
-    {% if not log %}
+    {% if not log and not question %}
         <p class="hint">Ask for a plant, for example: "Which plants are safe for cats and like shade?"</p>
     {% endif %}
 
@@ -15,8 +15,30 @@
 
     <p class="thinking" data-loading>Thinking</p>
 
-    <form class="send" data-action="live#action:prevent" data-live-action-param="send">
-        <input name="message" data-model="norender|message" placeholder="Which plant fits my dark bathroom?" autocomplete="off" required>
-        <button data-loading="addAttribute(disabled)">Ask</button>
-    </form>
+    {% if question %}
+        <form class="ask" data-action="live#action:prevent" data-live-action-param="answer">
+            <p class="agent">{{ question }}</p>
+            {% for field in fields %}
+                <label>{{ field.label }}
+                    {% if 'select' == field.type %}
+                        <select data-model="norender|answers[{{ field.name }}]">
+                            {% for option in field.options|default([]) %}
+                                <option value="{{ option.value ?? option.label ?? option }}">{{ option.label ?? option }}</option>
+                            {% endfor %}
+                        </select>
+                    {% elseif 'checkbox' == field.type %}
+                        <input type="checkbox" data-model="norender|answers[{{ field.name }}]">
+                    {% else %}
+                        <input type="text" data-model="norender|answers[{{ field.name }}]">
+                    {% endif %}
+                </label>
+            {% endfor %}
+            <button data-loading="addAttribute(disabled)">Send</button>
+        </form>
+    {% else %}
+        <form class="send" data-action="live#action:prevent" data-live-action-param="send">
+            <input name="message" data-model="norender|message" placeholder="Which plant fits my dark bathroom?" autocomplete="off" required>
+            <button data-loading="addAttribute(disabled)">Ask</button>
+        </form>
+    {% endif %}
 </section>

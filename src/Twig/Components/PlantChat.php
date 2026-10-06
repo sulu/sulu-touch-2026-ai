@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Twig\Components;
 
+use Sulu\Bundle\AiPlatformBundle\Application\Agent\AgentClientInterface;
+use Sulu\Bundle\AiPlatformBundle\Infrastructure\SuluAi\Exception\AgentInputRequiredException;
 use Symfony\AI\Agent\AgentInterface;
 use Symfony\AI\Agent\Toolbox\Event\ToolCallRequested;
 use Symfony\AI\Agent\Toolbox\Event\ToolCallSucceeded;
@@ -36,10 +38,27 @@ final class PlantChat
     #[LiveProp]
     public ?string $run = null;
 
+    /** The message of the run that waits for the answers of the visitor, and the question the agent asked. */
+    #[LiveProp]
+    public ?string $pending = null;
+
+    #[LiveProp]
+    public string $question = '';
+
+    /** @var list<array{name: string, label: string, type: string, options?: list<mixed>}> */
+    #[LiveProp]
+    public array $fields = [];
+
+    /** @var array<string, mixed> */
+    #[LiveProp(writable: true)]
+    public array $answers = [];
+
     public function __construct(
         #[Autowire(service: 'ai.agent.plant_finder')]
         private readonly AgentInterface $agent,
         private readonly EventDispatcherInterface $eventDispatcher,
+        #[Autowire(service: 'sulu_ai_platform.agent_client')]
+        private readonly AgentClientInterface $agentClient,
     ) {
     }
 
@@ -66,6 +85,28 @@ final class PlantChat
         $messages->add(Message::ofUser($question));
         $this->log[] = ['type' => 'you', 'text' => $question];
 
+        $this->call($messages, []);
+    }
+
+    /** The visitor filled in the form the agent asked for. */
+    #[LiveAction]
+    public function answer(): void
+    {
+        \set_time_limit(180);
+
+        $answers = $this->answers;
+        $this->log[] = ['type' => 'you', 'text' => \implode(', ', \array_map(static fn (mixed $value): string => \is_bool($value) ? ($value ? 'yes' : 'no') : (string) $value, $answers))];
+        $message = $this->pending;
+        $this->resetQuestion();
+
+        $this->call(new MessageBag(Message::ofUser((string) \json_encode($answers))), ['message' => $message, 'answers' => $answers]);
+    }
+
+    /**
+     * @param array<string, mixed> $options
+     */
+    private function call(MessageBag $messages, array $options): void
+    {
         $steps = [];
         $plants = [];
         $this->eventDispatcher->addListener(ToolCallRequested::class, static function (ToolCallRequested $event) use (&$steps): void {
@@ -78,12 +119,23 @@ final class PlantChat
             }
         });
 
-        $options = null === $this->run ? [] : ['run' => $this->run];
+        // The platform of sulu.ai runs ask_user itself. OpenAI knows no such tool.
+        $options['server_tools'] = ['ask_user'];
+        if (null !== $this->run) {
+            $options['run'] = $this->run;
+        }
 
         try {
             // The execution is lazy: the platform is called, and its errors are thrown, when the content is read.
             $result = $this->agent->call($messages, $options);
             $answer = $result->asText();
+        } catch (AgentInputRequiredException $exception) {
+            // The model asks the visitor. The form below the log collects the answers.
+            $this->run = $exception->getRunUuid();
+            $this->log = [...$this->log, ...$steps];
+            $this->askQuestion($exception->getRunUuid(), $exception->getMessageUuid());
+
+            return;
         } catch (\Exception $exception) {
             // The exceptions of the two platforms share no common type, so catch \Exception.
             $this->log[] = ['type' => 'error', 'text' => 'Error: ' . $exception->getMessage()];
@@ -100,5 +152,34 @@ final class PlantChat
         foreach ($plants as $plant) {
             $this->log[] = ['type' => 'plant', 'text' => \sprintf('%s (%s)', $plant['title'], $plant['code']), 'url' => $plant['url']];
         }
+    }
+
+    private function askQuestion(string $runUuid, string $messageUuid): void
+    {
+        $input = $this->agentClient->getMessage($runUuid, $messageUuid)['pending']['input'] ?? [];
+
+        $this->pending = $messageUuid;
+        $this->question = $input['question'] ?? '';
+        $this->fields = $input['fields'] ?? [];
+
+        // The form shows the first option of a select, so the answers start with it.
+        $this->answers = [];
+        foreach ($this->fields as $field) {
+            $options = $field['options'] ?? [];
+            $first = \reset($options);
+            $this->answers[$field['name']] = match ($field['type']) {
+                'checkbox' => false,
+                'select' => \is_array($first) ? ($first['value'] ?? $first['label'] ?? '') : (string) $first,
+                default => '',
+            };
+        }
+    }
+
+    private function resetQuestion(): void
+    {
+        $this->pending = null;
+        $this->question = '';
+        $this->fields = [];
+        $this->answers = [];
     }
 }

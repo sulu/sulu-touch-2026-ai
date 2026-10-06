@@ -2,7 +2,8 @@
 """Talks to the PlantChat live component on the start page the way the browser does.
 
 Usage: bin/live-chat <base url> <message>...
-Prints one JSON object per message: the log of the component after the answer.
+Prints one JSON object per step: the log, the run and the open question of the component.
+When the agent asks a question, the form is sent with its default answers.
 """
 import html
 import json
@@ -16,17 +17,26 @@ def attribute(document, name):
     return html.unescape(re.search(r'data-live-%s-value="([^"]*)"' % name, document).group(1))
 
 
+def call(action, props, updated):
+    body = urllib.parse.urlencode({'data': json.dumps({'props': props, 'updated': updated, 'args': {}})}).encode()
+    request = urllib.request.Request(url + '/' + action, body, {
+        'Accept': 'application/vnd.live-component+html',
+        'X-Requested-With': 'XMLHttpRequest',
+    })
+    fragment = urllib.request.urlopen(request, timeout=240).read().decode()
+    state = json.loads(attribute(fragment, 'props'))
+    print(json.dumps({'log': state['log'], 'run': state.get('run'), 'question': state.get('question', ''), 'fields': state.get('fields', [])}))
+    return state
+
+
 base, messages = sys.argv[1], sys.argv[2:]
 page = urllib.request.urlopen(base + '/').read().decode()
 props = json.loads(attribute(page, 'props'))
 url = base + attribute(page, 'url')
 
 for message in messages:
-    body = urllib.parse.urlencode({'data': json.dumps({'props': props, 'updated': {'message': message}, 'args': {}})}).encode()
-    request = urllib.request.Request(url + '/send', body, {
-        'Accept': 'application/vnd.live-component+html',
-        'X-Requested-With': 'XMLHttpRequest',
-    })
-    fragment = urllib.request.urlopen(request, timeout=240).read().decode()
-    props = json.loads(attribute(fragment, 'props'))
-    print(json.dumps({'log': props['log'], 'run': props.get('run')}))
+    props = call('send', props, {'message': message})
+    for _ in range(3):
+        if not props.get('question'):
+            break
+        props = call('answer', props, {})
