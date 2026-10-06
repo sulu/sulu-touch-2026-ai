@@ -46,6 +46,11 @@ if bin/websiteconsole debug:router ux_live_component >/dev/null 2>&1; then
     else
         check "chat shows an error entry" "printf '%s' \"\$R1\" | jq -e '.log | map(select(.type == \"error\")) | length > 0'"
     fi
+    if [ $LIVE = 1 ] && grep -q ask_user config/ai/plant_finder.md; then
+        ASK=$(bin/live-chat $BASE "I want a plant for my home" 2>&1)
+        check "the agent asks the visitor with ask_user" "printf '%s\\n' \"\$ASK\" | jq -s -e 'map(select(.question != \"\")) | length > 0'"
+        check "the agent answers after the form" "printf '%s\\n' \"\$ASK\" | jq -s -e 'last | .log | map(select(.type == \"agent\")) | length > 0'"
+    fi
 fi
 
 [ $FAILED = 0 ] && echo "SMOKE OK" || { echo "SMOKE FAILED"; exit 1; }

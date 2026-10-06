@@ -2,8 +2,9 @@
 """Talks to the PlantChat live component on the start page the way the browser does.
 
 Usage: bin/live-chat <base url> <message>...
-Prints one JSON object per message: the log of the component after the answer.
-Like the browser, it polls until the run is done.
+Prints one JSON object per step: the log, the run and the open question of the component.
+Like the browser, it polls until the run is done or asks a question.
+When the agent asks a question, the form is sent with its default answers.
 """
 import html
 import json
@@ -30,10 +31,11 @@ def call(action, props, updated):
 
 def settle(state):
     for _ in range(160):
-        if not state.get('pending'):
+        if not state.get('pending') or state.get('question'):
             break
         time.sleep(1.5)
         state = call('poll', state, {})
+    print(json.dumps({'log': state['log'], 'run': state.get('run'), 'question': state.get('question', ''), 'fields': state.get('fields', [])}))
     return state
 
 
@@ -44,4 +46,7 @@ url = base + attribute(page, 'url')
 
 for message in messages:
     props = settle(call('send', props, {'message': message}))
-    print(json.dumps({'log': props['log'], 'run': props.get('run')}))
+    for _ in range(3):
+        if not props.get('question'):
+            break
+        props = settle(call('answer', props, {}))
