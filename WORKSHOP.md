@@ -47,7 +47,7 @@ Jeder baut auf dem vorigen auf. Zeigen mit `git diff 01-start 02-weather-console
 - Branch 02 bis 04 laufen mit dem veröffentlichten Sulu AI Platform Bundle und eigener Infrastruktur. Das kann jeder nachbauen.
 - Branch 05 und 06 nutzen die Agents API der Plattform. Sie ist noch nicht veröffentlicht und kommt im Q4 2026. Der Code der Agents API ist in `sulu/ai-platform-bundle` auf `main` gemergt, aber noch kein Release. Die Branches pinnen deshalb `dev-main` (`composer.json`). Das gilt nur für dein Setup. Die Folien sagen "Coming in Q4 2026".
 - `symfony/ai-*` steht auf `^0.14` und kommt erst in Branch 02 dazu. `01-start` hat es nicht. `composer.lock` ist im Git.
-- Die Live Component braucht `assets/vendor/` (Stimulus). Der Ordner ist ausnahmsweise im Git, damit ein Stand ohne Netz startet.
+- Die Live Component lädt Stimulus über AssetMapper. `composer install` holt es beim ersten Mal in `assets/vendor/` (ignoriert, braucht Netz). Der Ordner bleibt beim Branch-Wechsel liegen. Starte vor dem Workshop einmal `bin/stand 04` mit Netz.
 - `bin/smoke` fährt die Komponente mit `bin/live-chat` so an, wie der Browser es tut.
 - Der Fork des Product Bundles ist eine Einzelstelle.
 - Die Bundle-Tools filtern nach den Schlüsseln der Optionen (`shade`, `full-sun`, `yes`, `easy`). Der Agent holt sie sich mit `sulu_product_get_attributes`.
