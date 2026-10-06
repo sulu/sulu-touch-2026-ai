@@ -36,7 +36,7 @@ symfony server:start -d --no-tls --port=8123
 - Admin: http://127.0.0.1:8123/admin, login `admin` / `admin`
 - The database runs in Docker on port 3317.
 
-After every branch change run `composer install` and `bin/workshop-reset`. `bin/stand 03` on `main` does both: call it by path from inside a checkout of a stand branch. The script rebuilds the database, the 15 plants and the search index.
+After every branch change run `composer install` and `bin/workshop-reset`. The script `bin/stand 03` does both and switches the branch for you. It is part of every stand branch.
 
 ## Slides
 

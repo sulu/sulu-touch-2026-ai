@@ -38,7 +38,7 @@ Jeder baut auf dem vorigen auf. Zeigen mit `git diff 01-start 02-weather-console
 - `docker compose up -d database` (Port 3317), dann nach jedem Branch-Wechsel `composer install` und `bin/workshop-reset`.
 - Server: `symfony server:start -d --no-tls --port=8123`. Admin: `http://127.0.0.1:8123/admin`, Login `admin` / `admin`.
 - Folien: `talk.html` auf `main`, im Browser öffnen. Die Markdown-Quelle liegt im Repo `sulu-slides-template`, Branch `sulu-touch-2026-ai-workshop`.
-- Stand wechseln: im Checkout `<pfad-zu-main>/bin/stand 03` (oder `05 smoke`). Das Skript liegt auf `main`, weil die Stand-Branches es nicht tragen. Es wechselt den Branch, macht `composer install` und `bin/workshop-reset` und startet den Server.
+- Stand wechseln: im Checkout `bin/stand 03` (oder `bin/stand 05 smoke`). Das Skript liegt auf jedem Stand-Branch. Es wechselt den Branch, macht `composer install` und `bin/workshop-reset` und startet den Server. In einem frischen Clone findet es auch Branches, die es nur auf dem Remote gibt.
 - Smoke-Test: `bin/smoke` (aktueller Branch) oder `bin/smoke-all` (alle sechs). Ohne Key prüft er nur die Verkabelung.
 
 ## Wichtig
