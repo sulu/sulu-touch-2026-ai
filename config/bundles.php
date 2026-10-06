@@ -47,4 +47,5 @@ return [
     CmsIg\Seal\Integration\Symfony\SealBundle::class => ['all' => true],
     Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
     Sulu\Product\Infrastructure\Symfony\HttpKernel\SuluProductBundle::class => ['all' => true],
+    Symfony\AI\AiBundle\AiBundle::class => ['all' => true],
 ];
