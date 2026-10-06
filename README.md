@@ -1,6 +1,6 @@
 # A Symfony AI agent on a Sulu page
 
-Workshop at Sulu:Touch 2026. We build an agent with Symfony AI, give it the product tools of a Sulu bundle and put a chat on a Sulu page. In the last step the agent moves to the sulu.ai platform with a config change.
+Workshop at Sulu:Touch 2026. We build an agent with Symfony AI, give it the product tools of a Sulu bundle and put a chat on a Sulu page. In the last steps the agent moves to the sulu.ai platform with a config change. These steps use the Sulu AI agents API, which is not released yet and comes in Q4 2026.
 
 The code lives in branches. Each branch builds on the previous one and holds the finished state of its step.
 
@@ -20,7 +20,7 @@ The code lives in branches. Each branch builds on the previous one and holds the
 - PHP 8.2 or newer, Composer, Docker
 - Node.js for the slides
 - `OPENAI_API_KEY` for branches 02 to 04
-- For branches 05 and 06: a `SULU_AI_PLATFORM_API_KEY`, the base URI of the platform and access to the private Sulu Composer repository
+- For branches 05 and 06: a `SULU_AI_PLATFORM_API_KEY`, the base URI of the platform and access to the private Sulu Composer repository. They pin development versions of the bundles until the agents API is released.
 
 ## Start
 

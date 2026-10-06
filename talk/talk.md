@@ -13,19 +13,6 @@ size: 16:9
 
 ---
 
-<!-- _class: about-me -->
-
-# Hi, I'm Johannes Wachter
-
-- Core Developer at Sulu CMS
-- Works with Symfony since 2012
-- Open Source & AI Enthusiast
-- Father of two
-
-![bg right:40%](assets/portrait.gif)
-
----
-
 <!-- _class: issues -->
 
 # What is an agent?
@@ -67,16 +54,6 @@ size: 16:9
 
 ---
 
-<!-- _class: issues -->
-
-# What a platform adds
-
-- History and runs live on the server
-- Every run is visible
-- Your tools still run in your app
-
----
-
 <!-- _class: live-demo -->
 
 # LIVE CODING
@@ -101,11 +78,42 @@ size: 16:9
 
 ---
 
+<!-- _class: issues -->
+
+# An agent in production needs more
+
+- A queue, so a request does not wait for the model
+- A worker that runs the tool loop
+- History and runs in a database
+- Logs, limits and a deploy
+
+---
+
+<!-- _class: issues -->
+
+# The Sulu AI agents API
+
+- The agent runs on sulu.ai
+- History and runs live on the server and every run is visible
+- Your tools still run in your app
+- The agent can ask the visitor back
+- Coming in Q4 2026
+
+---
+
 <!-- _class: live-demo -->
 
 # LIVE CODING
 
 ## 4. Switch to sulu.ai
+
+---
+
+<!-- _class: live-demo -->
+
+# LIVE CODING
+
+## 5. The agent asks back
 
 ---
 
