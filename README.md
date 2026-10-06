@@ -40,14 +40,7 @@ After every branch change run `composer install` and `bin/workshop-reset`. `bin/
 
 ## Slides
 
-The slides are on `main`, in `talk/`. They use Marp and build offline.
-
-```bash
-cd talk
-npm install
-npm run build   # writes talk.html
-npm run dev     # live preview while you edit talk.md
-```
+`talk.html` on `main` is the finished deck: one file, no network needed for the images. Open it in a browser. The Markdown source is on the branch `sulu-touch-2026-workshop` of the `sulu-slides-template` repository.
 
 ## Check a branch
 

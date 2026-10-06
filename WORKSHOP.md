@@ -37,7 +37,7 @@ Jeder baut auf dem vorigen auf. Zeigen mit `git diff 01-start 02-weather-console
 - `.env.local`: `OPENAI_API_KEY` (Branch 2 bis 4) und `SULU_AI_PLATFORM_API_KEY` (Branch 5 und 6). Die Datei ist nicht im Git.
 - `docker compose up -d database` (Port 3317), dann nach jedem Branch-Wechsel `composer install` und `bin/workshop-reset`.
 - Server: `symfony server:start -d --no-tls --port=8123`. Admin: `http://127.0.0.1:8123/admin`, Login `admin` / `admin`.
-- Folien liegen auf `main` in `talk/`: `cd talk && npm install && npm run dev`, oder `npm run build` für eine HTML-Datei ohne Netz.
+- Folien: `talk.html` auf `main`, im Browser öffnen. Die Markdown-Quelle liegt im Repo `sulu-slides-template`, Branch `sulu-touch-2026-workshop`.
 - Stand wechseln: im Checkout `<pfad-zu-main>/bin/stand 03` (oder `05 smoke`). Das Skript liegt auf `main`, weil die Stand-Branches es nicht tragen. Es wechselt den Branch, macht `composer install` und `bin/workshop-reset` und startet den Server.
 - Smoke-Test: `bin/smoke` (aktueller Branch) oder `bin/smoke-all` (alle sechs). Ohne Key prüft er nur die Verkabelung.
 
