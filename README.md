@@ -7,9 +7,9 @@ The code lives in branches. Each branch builds on the previous one and holds the
 | Branch | What you get |
 |---|---|
 | [`01-start`](../../tree/01-start) | Sulu skeleton, product bundle, 15 houseplants |
-| [`02-weather-console`](../../tree/02-weather-console) | A weather agent in the console, on OpenAI |
+| [`02-weather-console`](../../tree/02-weather-console) | Install Symfony AI and add a weather agent in the console, on OpenAI |
 | [`03-product-tools`](../../tree/03-product-tools) | The same agent gets the product tools of the bundle |
-| [`04-ui`](../../tree/04-ui) | A chat endpoint and a chat widget on the start page |
+| [`04-ui`](../../tree/04-ui) | The chat on the start page as a Symfony UX live component, without JavaScript |
 | [`05-sulu-ai`](../../tree/05-sulu-ai) | The same app on the sulu.ai platform |
 | [`06-ask-user`](../../tree/06-ask-user) | The agent asks the visitor back |
 
