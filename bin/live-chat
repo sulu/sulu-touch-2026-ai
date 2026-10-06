@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+"""Talks to the PlantChat live component on the start page the way the browser does.
+
+Usage: bin/live-chat <base url> <message>...
+Prints one JSON object per message: the log of the component after the answer.
+"""
+import html
+import json
+import re
+import sys
+import urllib.parse
+import urllib.request
+
+
+def attribute(document, name):
+    return html.unescape(re.search(r'data-live-%s-value="([^"]*)"' % name, document).group(1))
+
+
+base, messages = sys.argv[1], sys.argv[2:]
+page = urllib.request.urlopen(base + '/').read().decode()
+props = json.loads(attribute(page, 'props'))
+url = base + attribute(page, 'url')
+
+for message in messages:
+    body = urllib.parse.urlencode({'data': json.dumps({'props': props, 'updated': {'message': message}, 'args': {}})}).encode()
+    request = urllib.request.Request(url + '/send', body, {
+        'Accept': 'application/vnd.live-component+html',
+        'X-Requested-With': 'XMLHttpRequest',
+    })
+    fragment = urllib.request.urlopen(request, timeout=240).read().decode()
+    props = json.loads(attribute(fragment, 'props'))
+    print(json.dumps({'log': props['log'], 'run': props.get('run')}))

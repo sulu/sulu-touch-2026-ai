@@ -59,3 +59,8 @@ phpstan.neon
 /.claude/
 /.codex/
 /auth.json
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
