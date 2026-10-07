@@ -119,6 +119,8 @@ final class PlantChat
             }
         });
 
+        // The platform of sulu.ai runs ask_user itself. The bundle cannot take a list in the model options.
+        $options['server_tools'] = ['ask_user'];
         if (null !== $this->run) {
             $options['run'] = $this->run;
         }
