@@ -119,8 +119,6 @@ final class PlantChat
             }
         });
 
-        // The platform of sulu.ai runs ask_user itself. OpenAI knows no such tool.
-        $options['server_tools'] = ['ask_user'];
         if (null !== $this->run) {
             $options['run'] = $this->run;
         }
