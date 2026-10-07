@@ -1355,16 +1355,16 @@
         },
         {
             "name": "doctrine/migrations",
-            "version": "3.9.7",
+            "version": "3.9.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "96cb2a89b56c9efb0bac38e606dc0b0f13e650ec"
+                "reference": "eb0b9ce3f999d720fa73037bbd06977ea34b76a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/96cb2a89b56c9efb0bac38e606dc0b0f13e650ec",
-                "reference": "96cb2a89b56c9efb0bac38e606dc0b0f13e650ec",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/eb0b9ce3f999d720fa73037bbd06977ea34b76a0",
+                "reference": "eb0b9ce3f999d720fa73037bbd06977ea34b76a0",
                 "shasum": ""
             },
             "require": {
@@ -1438,7 +1438,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/migrations/issues",
-                "source": "https://github.com/doctrine/migrations/tree/3.9.7"
+                "source": "https://github.com/doctrine/migrations/tree/3.9.8"
             },
             "funding": [
                 {
@@ -1454,20 +1454,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-23T19:33:20+00:00"
+            "time": "2026-10-04T12:35:58+00:00"
         },
         {
             "name": "doctrine/orm",
-            "version": "3.7.3",
+            "version": "3.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "2637802f3bb695a88f54af1a6f0c2e76a4b523fb"
+                "reference": "84e21e325e3da22e46d7facbccdc9258f2332b1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/2637802f3bb695a88f54af1a6f0c2e76a4b523fb",
-                "reference": "2637802f3bb695a88f54af1a6f0c2e76a4b523fb",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/84e21e325e3da22e46d7facbccdc9258f2332b1e",
+                "reference": "84e21e325e3da22e46d7facbccdc9258f2332b1e",
                 "shasum": ""
             },
             "require": {
@@ -1542,9 +1542,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/orm/issues",
-                "source": "https://github.com/doctrine/orm/tree/3.7.3"
+                "source": "https://github.com/doctrine/orm/tree/3.7.4"
             },
-            "time": "2026-09-26T21:45:25+00:00"
+            "time": "2026-10-05T18:31:26+00:00"
         },
         {
             "name": "doctrine/persistence",
@@ -5317,12 +5317,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/SuluProductBundle.git",
-                "reference": "00336b1f909eb05f31193afa3040e7ccf90ec49e"
+                "reference": "714f86e20665c7405f80084f1be89489aeb6e2fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/SuluProductBundle/zipball/00336b1f909eb05f31193afa3040e7ccf90ec49e",
-                "reference": "00336b1f909eb05f31193afa3040e7ccf90ec49e",
+                "url": "https://api.github.com/repos/sulu/SuluProductBundle/zipball/714f86e20665c7405f80084f1be89489aeb6e2fa",
+                "reference": "714f86e20665c7405f80084f1be89489aeb6e2fa",
                 "shasum": ""
             },
             "require": {
@@ -5330,6 +5330,7 @@
                 "doctrine/collections": "^1.6 || ^2.0",
                 "doctrine/dbal": "^3.9 || ^4.0",
                 "doctrine/orm": "^2.17.3 || ^3.3",
+                "ext-filter": "*",
                 "ext-intl": "*",
                 "ext-mbstring": "*",
                 "php": "^8.2",
@@ -5356,7 +5357,6 @@
             },
             "require-dev": {
                 "cmsig/seal-memory-adapter": "^0.12.10",
-                "ext-filter": "*",
                 "handcraftedinthealps/code-coverage-checker": "^0.2.1",
                 "jangregor/phpstan-prophecy": "^2.0",
                 "league/oauth2-server-bundle": "^1.2",
@@ -5402,7 +5402,7 @@
                 "issues": "https://github.com/sulu/SuluProductBundle/issues",
                 "source": "https://github.com/sulu/SuluProductBundle/tree/3.0"
             },
-            "time": "2026-10-06T22:21:21+00:00"
+            "time": "2026-10-07T09:32:34+00:00"
         },
         {
             "name": "sulu/sulu",
@@ -5410,12 +5410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "3e80a3ea62df508c33648c9e0419d1e3f0e524b5"
+                "reference": "ddda1baa328297d34c9b4af213a56831095020c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/3e80a3ea62df508c33648c9e0419d1e3f0e524b5",
-                "reference": "3e80a3ea62df508c33648c9e0419d1e3f0e524b5",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/ddda1baa328297d34c9b4af213a56831095020c5",
+                "reference": "ddda1baa328297d34c9b4af213a56831095020c5",
                 "shasum": ""
             },
             "require": {
@@ -5651,7 +5651,7 @@
                 "issues": "https://github.com/sulu/skeleton/issues",
                 "source": "https://github.com/sulu/skeleton"
             },
-            "time": "2026-10-02T08:47:20+00:00"
+            "time": "2026-10-07T11:30:36+00:00"
         },
         {
             "name": "symfony-cmf/routing",
@@ -11747,16 +11747,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "2.4.1",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "2ccb7c2e821038c03a3e6e1700c570c158c55f70"
+                "reference": "8a163706bbcac613733dba03f51e13b5eb1bb819"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/2ccb7c2e821038c03a3e6e1700c570c158c55f70",
-                "reference": "2ccb7c2e821038c03a3e6e1700c570c158c55f70",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/8a163706bbcac613733dba03f51e13b5eb1bb819",
+                "reference": "8a163706bbcac613733dba03f51e13b5eb1bb819",
                 "shasum": ""
             },
             "require": {
@@ -11807,9 +11807,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/2.4.1"
+                "source": "https://github.com/webmozarts/assert/tree/2.5.0"
             },
-            "time": "2026-06-15T15:31:57+00:00"
+            "time": "2026-10-05T23:14:19+00:00"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
