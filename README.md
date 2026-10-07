@@ -4,14 +4,14 @@ Workshop at Sulu:Touch 2026. We build an agent with Symfony AI, give it the prod
 
 The code lives in branches. Each branch builds on the previous one and holds the finished state of its step.
 
-| Branch | What you get |
-|---|---|
-| [`01-start`](../../tree/01-start) | Sulu skeleton, product bundle, 15 houseplants |
-| [`02-weather-console`](../../tree/02-weather-console) | Install Symfony AI and add a weather agent in the console, on OpenAI |
-| [`03-product-tools`](../../tree/03-product-tools) | The same agent gets the product tools of the bundle |
-| [`04-ui`](../../tree/04-ui) | The chat on the start page as a Symfony UX live component, without JavaScript |
-| [`05-sulu-ai`](../../tree/05-sulu-ai) | The same app on the sulu.ai platform |
-| [`06-ask-user`](../../tree/06-ask-user) | The agent asks the visitor back |
+| Branch | What you get | Changes |
+|---|---|---|
+| [`01-start`](../../tree/01-start) | Sulu skeleton, product bundle, 15 houseplants | - |
+| [`02-weather-console`](../../tree/02-weather-console) | Install Symfony AI and add a weather agent in the console, on OpenAI | [`01-start...02-weather-console`](../../compare/01-start...02-weather-console) |
+| [`03-product-tools`](../../tree/03-product-tools) | The same agent gets the product tools of the bundle | [`02-weather-console...03-product-tools`](../../compare/02-weather-console...03-product-tools) |
+| [`04-ui`](../../tree/04-ui) | The chat on the start page as a Symfony UX live component, without JavaScript | [`03-product-tools...04-ui`](../../compare/03-product-tools...04-ui) |
+| [`05-sulu-ai`](../../tree/05-sulu-ai) | The same app on the sulu.ai platform | [`04-ui...05-sulu-ai`](../../compare/04-ui...05-sulu-ai) |
+| [`06-ask-user`](../../tree/06-ask-user) | The agent asks the visitor back | [`05-sulu-ai...06-ask-user`](../../compare/05-sulu-ai...06-ask-user) |
 
 `git diff 02-weather-console 03-product-tools` shows what a step changes.
 
