@@ -2,6 +2,8 @@
 
 Workshop at Sulu:Touch 2026. We build an agent with Symfony AI, give it the product tools of a Sulu bundle and put a chat on a Sulu page. In the last steps the agent moves to the sulu.ai platform with a config change. These steps use the Sulu AI agents API, which is not released yet and comes in Q4 2026.
 
+**Slides:** [sulu.github.io/sulu-touch-2026-ai/talk.html](https://sulu.github.io/sulu-touch-2026-ai/talk.html)
+
 The code lives in branches. Each branch builds on the previous one and holds the finished state of its step.
 
 | Branch | What you get | Changes |
@@ -40,7 +42,7 @@ After every branch change run `composer install` and `bin/workshop-reset`. The s
 
 ## Slides
 
-The slides are online: [sulu.github.io/sulu-touch-2026-ai/talk.html](https://sulu.github.io/sulu-touch-2026-ai/talk.html). The file `talk.html` on `main` is the same deck: one file, no network needed for the images. The Markdown source is on the branch `sulu-touch-2026-ai-workshop` of the `sulu-slides-template` repository.
+The file `talk.html` on `main` is the finished deck: one file, no network needed for the images. Open it in a browser or use the link at the top. The Markdown source is on the branch `sulu-touch-2026-ai-workshop` of the `sulu-slides-template` repository.
 
 ## Check a branch
 
