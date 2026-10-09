@@ -40,12 +40,8 @@ After every branch change run `composer install` and `bin/workshop-reset`. The s
 
 ## Slides
 
-`talk.html` on `main` is the finished deck: one file, no network needed for the images. Open it in a browser. The Markdown source is on the branch `sulu-touch-2026-ai-workshop` of the `sulu-slides-template` repository.
+The slides are online: [sulu.github.io/sulu-touch-2026-ai/talk.html](https://sulu.github.io/sulu-touch-2026-ai/talk.html). The file `talk.html` on `main` is the same deck: one file, no network needed for the images. The Markdown source is on the branch `sulu-touch-2026-ai-workshop` of the `sulu-slides-template` repository.
 
 ## Check a branch
 
 `bin/smoke` runs the checks for the current branch. `bin/smoke-all` runs every branch. Without a key it only checks the wiring, with a key the agent answers for real.
-
-## Notes for the speaker
-
-See [WORKSHOP.md](WORKSHOP.md).
